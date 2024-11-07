@@ -6,3 +6,4 @@
 
 - [ ] Self review
 - [ ] Execute `npm run check-all`
+- [ ] Execute `npm run fix-all`

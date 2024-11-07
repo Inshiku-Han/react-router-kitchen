@@ -1,5 +1,6 @@
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import perfectionist from 'eslint-plugin-perfectionist';
@@ -92,4 +93,9 @@ export default tsEslint.config(
     },
   },
   includeIgnoreFile(gitignorePath),
+  /**
+   * You must set eslintConfigPrettier as the last configuration
+   * @link https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#what-and-why
+   */
+  eslintConfigPrettier,
 );

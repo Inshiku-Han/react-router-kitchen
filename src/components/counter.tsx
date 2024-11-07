@@ -9,7 +9,7 @@ type Props = Omit<ComponentProps<'button'>, 'onClick'>;
 export default function Counter(props: Props) {
   const [count, setCount] = useState<number>(0);
 
-  const previous = usePrevious(count)
+  const previous = usePrevious(count);
 
   const handleCount = useCallback(() => setCount((p) => p + 1), []);
 

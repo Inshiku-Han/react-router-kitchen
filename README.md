@@ -41,3 +41,4 @@ npm run start:ssr
 - [vite](https://vite.dev/guide/)
 - [storybook](https://storybook.js.org/docs)
 - [eslint](https://eslint.org/docs/latest/)
+- [prettier](https://prettier.io/docs/en/)

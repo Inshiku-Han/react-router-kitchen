@@ -6,6 +6,7 @@ import perfectionist from 'eslint-plugin-perfectionist';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
+import storybook from 'eslint-plugin-storybook';
 import unicorn from 'eslint-plugin-unicorn';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
@@ -23,6 +24,7 @@ export default tsEslint.config(
   importPlugin.flatConfigs.recommended,
   unicorn.configs['flat/recommended'],
   perfectionist.configs['recommended-alphabetical'],
+  ...storybook.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs,cjs,ts,tsx}'],
     plugins: {

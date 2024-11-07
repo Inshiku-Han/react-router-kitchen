@@ -42,3 +42,4 @@ npm run start:ssr
 - [storybook](https://storybook.js.org/docs)
 - [eslint](https://eslint.org/docs/latest/)
 - [prettier](https://prettier.io/docs/en/)
+- [knip](https://knip.dev/overview/getting-started)

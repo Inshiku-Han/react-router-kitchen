@@ -16,7 +16,8 @@
     "typegen:watch": "react-router typegen --watch",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "check-all": "run-s lint typecheck",
+    "knip": "knip",
+    "check-all": "run-s lint typecheck knip",
     "fix-all": "run-s lint:fix format",
     "prepare": "husky",
     "postinstall": "react-router typegen"
@@ -54,6 +55,7 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^15.12.0",
     "husky": "^9.1.6",
+    "knip": "^5.36.3",
     "lint-staged": "^15.2.10",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.3.3",

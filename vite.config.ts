@@ -19,5 +19,19 @@ export default defineConfig(({ command, mode }) => {
           }),
       tsconfigPaths(),
     ],
+    test: {
+      coverage: {
+        all: true,
+        exclude: [
+          '**/__tests__/**',
+          '/**/*.stories.tsx',
+          'src/app/routes.ts',
+          'src/app/root.tsx',
+        ],
+        include: ['src/**/*.{ts,tsx}'],
+      },
+      environment: 'jsdom',
+      include: ['**/__tests__/**'],
+    },
   };
 });

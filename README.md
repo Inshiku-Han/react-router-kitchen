@@ -39,6 +39,7 @@ npm run start:ssr
 - [react](https://react.dev/)
 - [react-router](https://reactrouter.com/dev)
 - [vite](https://vite.dev/guide/)
+- [vitest](https://vitest.dev/guide/)
 - [storybook](https://storybook.js.org/docs)
 - [eslint](https://eslint.org/docs/latest/)
 - [prettier](https://prettier.io/docs/en/)

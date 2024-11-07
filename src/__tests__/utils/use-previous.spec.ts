@@ -8,7 +8,7 @@ it('Should be return', () => {
 
   expect(result.current).toBeUndefined();
 
-  rerender(false);
+  rerender();
 
   expect(result.current).toBe(true);
 });

@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema-jsonc.json",
-  "entry": ["src/app/root.tsx", "src/app/routes.ts", "src/app/routes/**/*.tsx"],
+  "entry": ["src/app/**/*.{ts,tsx}"],
   "ignoreDependencies": ["isbot"],
   "vite": {
     "config": ["**/vite.config.ts"],

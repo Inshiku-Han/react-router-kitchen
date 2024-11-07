@@ -22,12 +22,7 @@ export default defineConfig(({ command, mode }) => {
     test: {
       coverage: {
         all: true,
-        exclude: [
-          '**/__tests__/**',
-          '/**/*.stories.tsx',
-          'src/app/routes.ts',
-          'src/app/root.tsx',
-        ],
+        exclude: ['**/__tests__/**', '/**/*.stories.{ts,tsx}', 'src/app/'],
         include: ['src/**/*.{ts,tsx}'],
       },
       environment: 'jsdom',

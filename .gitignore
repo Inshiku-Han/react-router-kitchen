@@ -1,0 +1,7 @@
+.cache
+.DS_store
+.env
+.react-router
+*.local.*
+/build
+node_modules

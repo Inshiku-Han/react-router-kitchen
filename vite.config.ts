@@ -24,6 +24,8 @@ export default defineConfig(({ command, mode }) => {
         all: true,
         exclude: ['**/__tests__/**', '/**/*.stories.{ts,tsx}', 'src/app/'],
         include: ['src/**/*.{ts,tsx}'],
+        reporter: ['text', 'json-summary', 'json'],
+        reportOnFailure: true,
       },
       environment: 'jsdom',
       include: ['**/__tests__/**'],

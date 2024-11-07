@@ -1,5 +1,6 @@
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
+import vitest from '@vitest/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
@@ -90,6 +91,22 @@ export default tsEslint.config(
         ...globals.serviceworker,
         ...globals.browser,
       },
+    },
+  },
+  // vitest
+  {
+    files: ['**/__tests__/**'],
+    plugins: {
+      vitest,
+    },
+    rules: {
+      ...vitest.configs.recommended.rules,
+      'vitest/expect-expect': [
+        'error',
+        {
+          assertFunctionNames: ['expect', 'render'],
+        },
+      ],
     },
   },
   includeIgnoreFile(gitignorePath),

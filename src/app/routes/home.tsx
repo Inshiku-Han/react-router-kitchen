@@ -1,9 +1,9 @@
-import type { MetaFunction } from 'react-router';
+import type { MetaFunction } from "react-router";
 
-import Counter from '~/components/counter';
+import Counter from "~/components/counter";
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'Home' }, { content: 'This is Home!', name: 'description' }];
+  return [{ title: "Home" }, { content: "This is Home!", name: "description" }];
 };
 
 export default function Home() {

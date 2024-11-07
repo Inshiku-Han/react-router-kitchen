@@ -1,16 +1,16 @@
-import type { PropsWithChildren } from 'react';
-import type { LinksFunction } from 'react-router';
+import type { PropsWithChildren } from "react";
+import type { LinksFunction } from "react-router";
 
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 
-import '~/styles/globals.css';
+import "~/styles/globals.css";
 
 export const links: LinksFunction = () => [
   {
-    as: 'style',
-    crossOrigin: 'anonymous',
-    href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css',
-    rel: 'stylesheet',
+    as: "style",
+    crossOrigin: "anonymous",
+    href: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css",
+    rel: "stylesheet",
   },
 ];
 

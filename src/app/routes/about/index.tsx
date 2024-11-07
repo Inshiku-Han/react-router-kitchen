@@ -1,11 +1,11 @@
-import type { MetaFunction } from 'react-router';
+import type { MetaFunction } from "react-router";
 
-import Counter from '~/components/counter';
+import Counter from "~/components/counter";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: 'About' },
-    { content: 'This is About!', name: 'description' },
+    { title: "About" },
+    { content: "This is About!", name: "description" },
   ];
 };
 

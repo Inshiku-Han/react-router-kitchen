@@ -1,15 +1,15 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from "react";
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from "react";
 
-import { double, usePrevious } from '~/utils/misc';
+import { double, usePrevious } from "~/utils/misc";
 
-type Props = Omit<ComponentProps<'button'>, 'onClick'>;
+type Props = Omit<ComponentProps<"button">, "onClick">;
 
 export default function Counter(props: Props) {
   const [count, setCount] = useState<number>(0);
 
-  const previous = usePrevious(count)
+  const previous = usePrevious(count);
 
   const handleCount = useCallback(() => setCount((p) => p + 1), []);
 

@@ -39,3 +39,4 @@ npm run start:ssr
 - [react](https://react.dev/)
 - [react-router](https://reactrouter.com/dev)
 - [vite](https://vite.dev/guide/)
+- [eslint](https://eslint.org/docs/latest/)

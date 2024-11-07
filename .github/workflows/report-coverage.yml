@@ -3,14 +3,13 @@ on:
   pull_request:
     types: [synchronize, opened, reopened, ready_for_review]
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   report:
     runs-on: ubuntu-22.04
-
-    permissions:
-      contents: read
-      pull-requests: write
-
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
@@ -22,8 +21,10 @@ jobs:
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
+
       - name: 📝 Execute Coverage
         run: npm run coverage
+
       - name: 📊 Report Coverage
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2

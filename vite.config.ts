@@ -7,6 +7,7 @@ export default defineConfig(({ command, mode }) => {
   const isSsrBuild = command === 'build' && mode === 'ssr';
 
   const env = loadEnv(mode, process.cwd(), '');
+  const port = env.PORT ? Number(env.PORT) : 3000;
 
   return {
     plugins: [
@@ -19,6 +20,12 @@ export default defineConfig(({ command, mode }) => {
           }),
       tsconfigPaths(),
     ],
+    preview: {
+      port,
+    },
+    server: {
+      port,
+    },
     test: {
       coverage: {
         all: true,

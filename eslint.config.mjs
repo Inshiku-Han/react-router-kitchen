@@ -5,6 +5,7 @@ import configPrettier from 'eslint-config-prettier';
 import pluginImport from 'eslint-plugin-import';
 import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginPerfectionist from 'eslint-plugin-perfectionist';
+import pluginPlaywright from 'eslint-plugin-playwright';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import pluginReactRefresh from 'eslint-plugin-react-refresh';
@@ -30,6 +31,12 @@ export default tsEslint.config(
   ...pluginStorybook.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs,cjs,ts,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
+    },
     plugins: {
       'unused-imports': pluginUnusedImports,
     },
@@ -103,28 +110,34 @@ export default tsEslint.config(
   {
     files: ['**/*.tsx'],
     ...pluginJsxA11y.flatConfigs.recommended,
-  },
-  // common config for react, jsx-a11y
-  {
-    files: ['**/*.{js,mjs,cjs,ts,tsx}'],
-    languageOptions: {
-      globals: {
-        ...globals.serviceworker,
-        ...globals.browser,
-      },
+    rules: {
+      ...pluginJsxA11y.flatConfigs.recommended.rules,
     },
   },
   // vitest
   {
     files: ['**/__tests__/**/*.spec.{ts,tsx}'],
     ...pluginVitest.configs.recommended,
+    rules: {
+      ...pluginVitest.configs.recommended.rules,
+    },
   },
   // testing-library
   {
     files: ['**/__tests__/**/*.spec.{ts,tsx}'],
     ...pluginTestingLibrary.configs['flat/react'],
+    rules: {
+      ...pluginTestingLibrary.configs['flat/react'].rules,
+    },
   },
-
+  // playwright
+  {
+    ...pluginPlaywright.configs['flat/recommended'],
+    files: ['tests/**'],
+    rules: {
+      ...pluginPlaywright.configs['flat/recommended'].rules,
+    },
+  },
   includeIgnoreFile(gitignorePath),
   /**
    * You must set eslintConfigPrettier as the last configuration

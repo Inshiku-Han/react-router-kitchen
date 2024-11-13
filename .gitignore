@@ -3,7 +3,11 @@
 .env
 .react-router
 *.local.*
+/blob-report/
 /build
 /coverage
+/playwright-report/
+/playwright/.cache/
+/test-results/
 node_modules
 storybook-static

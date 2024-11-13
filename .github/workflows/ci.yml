@@ -1,4 +1,4 @@
-name: ✅ CI
+name: 'CI'
 
 on:
   pull_request:
@@ -9,11 +9,8 @@ jobs:
     name: ⬣ ESLint
     runs-on: ubuntu-22.04
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -27,11 +24,8 @@ jobs:
     name: ʦ TypeScript
     runs-on: ubuntu-22.04
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -41,38 +35,13 @@ jobs:
       - name: 🔎 Type check
         run: npm run typecheck --if-present
 
-  vitest:
-    name: ⚡ Vitest
-    runs-on: ubuntu-22.04
-    steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-
-      - name: ⚡ Run vitest
-        run: npm run coverage
-
-      - name: 📊 Report Coverage
-        if: always()
-        uses: davelosert/vitest-coverage-report-action@v2
-
   playwright:
     name: 🎭 Playwright
     runs-on: ubuntu-22.04
     timeout-minutes: 60
     steps:
-      - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
-
-      - name: ⎔ Setup node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 

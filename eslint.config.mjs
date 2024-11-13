@@ -133,7 +133,7 @@ export default tsEslint.config(
   // playwright
   {
     ...pluginPlaywright.configs['flat/recommended'],
-    files: ['tests/**'],
+    files: ['tests/e2e/**/*.spec.ts'],
     rules: {
       ...pluginPlaywright.configs['flat/recommended'].rules,
     },

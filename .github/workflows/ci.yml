@@ -3,10 +3,6 @@ name: ✅ CI
 on:
   pull_request:
     types: [synchronize, opened, reopened, ready_for_review]
-  push:
-    branches:
-      - prod
-      - dev
 
 jobs:
   lint:
@@ -62,6 +58,10 @@ jobs:
 
       - name: ⚡ Run vitest
         run: npm run coverage
+
+      - name: 📊 Report Coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2
 
   playwright:
     name: 🎭 Playwright

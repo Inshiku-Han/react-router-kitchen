@@ -4,7 +4,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig(({ command, mode }) => {
   const isStaticBuild = command === 'build' && mode === 'static';
-  const isSsrBuild = command === 'build' && mode === 'ssr';
+  const isServerBuild = command === 'build' && mode === 'server';
 
   const env = loadEnv(mode, process.cwd(), '');
   const port = env.PORT ? Number(env.PORT) : 3000;
@@ -16,7 +16,7 @@ export default defineConfig(({ command, mode }) => {
         : reactRouter({
             appDirectory: 'src/app',
             prerender: isStaticBuild,
-            ssr: isSsrBuild,
+            ssr: isServerBuild,
           }),
       tsconfigPaths(),
     ],

@@ -1,4 +1,4 @@
-# ReactRouter base template
+# React Router Kitchen
 
 ## Project structure
 

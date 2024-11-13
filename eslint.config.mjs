@@ -1,16 +1,17 @@
 import { includeIgnoreFile } from '@eslint/compat';
 import eslint from '@eslint/js';
-import vitest from '@vitest/eslint-plugin';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import importPlugin from 'eslint-plugin-import';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
-import perfectionist from 'eslint-plugin-perfectionist';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import storybook from 'eslint-plugin-storybook';
-import unicorn from 'eslint-plugin-unicorn';
-import unusedImports from 'eslint-plugin-unused-imports';
+import pluginVitest from '@vitest/eslint-plugin';
+import configPrettier from 'eslint-config-prettier';
+import pluginImport from 'eslint-plugin-import';
+import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
+import pluginPerfectionist from 'eslint-plugin-perfectionist';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import pluginReactRefresh from 'eslint-plugin-react-refresh';
+import pluginStorybook from 'eslint-plugin-storybook';
+import pluginTestingLibrary from 'eslint-plugin-testing-library';
+import pluginUnicorn from 'eslint-plugin-unicorn';
+import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -23,14 +24,14 @@ const gitignorePath = path.resolve(__dirname, '.gitignore');
 export default tsEslint.config(
   eslint.configs.recommended,
   ...tsEslint.configs.recommended,
-  importPlugin.flatConfigs.recommended,
-  unicorn.configs['flat/recommended'],
-  perfectionist.configs['recommended-alphabetical'],
-  ...storybook.configs['flat/recommended'],
+  pluginImport.flatConfigs.recommended,
+  pluginUnicorn.configs['flat/recommended'],
+  pluginPerfectionist.configs['recommended-alphabetical'],
+  ...pluginStorybook.configs['flat/recommended'],
   {
     files: ['**/*.{js,mjs,cjs,ts,tsx}'],
     plugins: {
-      'unused-imports': unusedImports,
+      'unused-imports': pluginUnusedImports,
     },
     rules: {
       '@typescript-eslint/consistent-type-imports': 'warn',
@@ -51,16 +52,37 @@ export default tsEslint.config(
       ],
     },
   },
-  // react related
+  // react
   {
     files: ['**/*.{ts,tsx}'],
-    ...react.configs.flat.recommended,
+    ...pluginReact.configs.flat.recommended,
+    rules: {
+      ...pluginReact.configs.flat.recommended.rules,
+      'react/react-in-jsx-scope': 'off',
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
+  // react-hooks
+  {
+    files: ['**/*.{ts,tsx}'],
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      'react-hooks': pluginReactHooks,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
+      ...pluginReactHooks.configs.recommended.rules,
+    },
+  },
+  // react-refresh
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      'react-refresh': pluginReactRefresh,
+    },
+    rules: {
       'react-refresh/only-export-components': [
         'warn',
         {
@@ -75,13 +97,12 @@ export default tsEslint.config(
           ],
         },
       ],
-      'react/react-in-jsx-scope': 'off',
     },
   },
   // jsx-a11y
   {
     files: ['**/*.tsx'],
-    ...jsxA11y.flatConfigs.recommended,
+    ...pluginJsxA11y.flatConfigs.recommended,
   },
   // common config for react, jsx-a11y
   {
@@ -95,24 +116,19 @@ export default tsEslint.config(
   },
   // vitest
   {
-    files: ['**/__tests__/**'],
-    plugins: {
-      vitest,
-    },
-    rules: {
-      ...vitest.configs.recommended.rules,
-      'vitest/expect-expect': [
-        'error',
-        {
-          assertFunctionNames: ['expect', 'render'],
-        },
-      ],
-    },
+    files: ['**/__tests__/**/*.spec.{ts,tsx}'],
+    ...pluginVitest.configs.recommended,
   },
+  // testing-library
+  {
+    files: ['**/__tests__/**/*.spec.{ts,tsx}'],
+    ...pluginTestingLibrary.configs['flat/react'],
+  },
+
   includeIgnoreFile(gitignorePath),
   /**
    * You must set eslintConfigPrettier as the last configuration
    * @link https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#what-and-why
    */
-  eslintConfigPrettier,
+  configPrettier,
 );

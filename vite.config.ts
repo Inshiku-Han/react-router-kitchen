@@ -28,7 +28,8 @@ export default defineConfig(({ command, mode }) => {
         reportOnFailure: true,
       },
       environment: 'jsdom',
-      include: ['**/__tests__/**'],
+      include: ['**/__tests__/**/*.spec.{ts,tsx}'],
+      setupFiles: ['src/__tests__/setup.ts'],
     },
   };
 });

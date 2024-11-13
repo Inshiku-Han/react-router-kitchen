@@ -9,6 +9,7 @@
     "build": "react-router build",
     "build:static": "react-router build --mode static",
     "build:ssr": "react-router build --mode ssr",
+    "preview": "vite preview",
     "start:ssr": "react-router-serve ./build/server/index.js",
     "lint": "eslint --ignore-pattern .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "lint:fix": "npm run lint -- --fix",

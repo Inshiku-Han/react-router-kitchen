@@ -22,8 +22,10 @@ jobs:
 
       - name: 📥 Download deps
         uses: bahmutov/npm-install@v1
+
       - name: 📝 Execute Coverage
         run: npm run coverage
+
       - name: 📊 Report Coverage
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2

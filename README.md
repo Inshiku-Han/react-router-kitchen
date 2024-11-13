@@ -4,6 +4,28 @@
 
 [Bulletproof react](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md)
 
+## Setup
+
+> 💡 You can use Yarn or pnpm as alternatives to npm
+
+### Copy .env.example
+
+```sh
+cp .env.example .env
+```
+
+### Install node_modules
+
+```sh
+npm ci
+```
+
+### Execute npm run setup
+
+```sh
+npm run setup
+```
+
 ## How to serve
 
 ### Without server
@@ -40,6 +62,8 @@ npm run start:ssr
 - [react-router](https://reactrouter.com/dev)
 - [vite](https://vite.dev/guide/)
 - [vitest](https://vitest.dev/guide/)
+- [testing-library](https://testing-library.com/docs)
+- [playwright](https://playwright.dev/docs/intro)
 - [storybook](https://storybook.js.org/docs)
 - [eslint](https://eslint.org/docs/latest/)
 - [prettier](https://prettier.io/docs/en/)

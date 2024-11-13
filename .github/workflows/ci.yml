@@ -1,4 +1,4 @@
-name: 'CI'
+name: 🔁 CI
 
 on:
   pull_request:
@@ -34,6 +34,27 @@ jobs:
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
+
+  vitest:
+    permissions:
+      pull-requests: write
+    name: ⚡ Vitest
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+
+      - name: ⚡ Run vitest
+        run: npm run coverage
+
+      - name: 📊 Report Coverage
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2
 
   playwright:
     name: 🎭 Playwright

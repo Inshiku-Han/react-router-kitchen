@@ -26,9 +26,27 @@ npm ci
 npm run setup
 ```
 
+### Preview (Only works with client-side rendering)
+
+> 💡 Avoid using preview in production environments.
+
+1. build
+
+```sh
+npm run build
+// or
+npm run build:static
+```
+
+2. preview
+
+```sh
+npm run preview
+```
+
 ## How to serve
 
-### Without server
+### Client-side rendering
 
 1. build
 
@@ -42,18 +60,18 @@ npm run build:static
 
 You can serve `build/client/` using [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/), [serve](https://www.npmjs.com/package/serve), [sirv-cli](https://www.npmjs.com/package/sirv-cli)...etc.
 
-### With server
+### Server-side rendering
 
 1. build
 
 ```sh
-npm run build:ssr
+npm run build:server
 ```
 
 2. serve
 
 ```sh
-npm run start:ssr
+npm run start:server
 ```
 
 ## References

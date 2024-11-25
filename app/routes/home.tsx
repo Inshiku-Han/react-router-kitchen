@@ -1,15 +1,12 @@
-import type { MetaFunction } from 'react-router';
-
 import Counter from '~/components/counter';
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: 'About' },
-    { content: 'This is About!', name: 'description' },
-  ];
+import type { Route } from './+types/home';
+
+export const meta: Route.MetaFunction = () => {
+  return [{ title: 'Home' }, { content: 'This is Home!', name: 'description' }];
 };
 
-export default function About() {
+export default function Home() {
   return (
     <div>
       <header>

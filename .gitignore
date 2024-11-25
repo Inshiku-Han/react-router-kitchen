@@ -3,6 +3,7 @@
 .env
 .react-router
 *.local.*
+*.tsbuildinfo
 /blob-report/
 /build
 /coverage

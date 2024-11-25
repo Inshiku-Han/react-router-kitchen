@@ -22,7 +22,7 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: process.env.CI ? 'npm run preview:client' : 'npm run dev',
+    command: process.env.CI ? 'npm run start' : 'npm run dev',
     env: {
       PORT,
     },

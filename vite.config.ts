@@ -21,14 +21,14 @@ export default defineConfig(({ mode }) => {
     test: {
       coverage: {
         all: true,
-        exclude: ['**/__tests__/**', '/**/*.stories.{ts,tsx}'],
+        exclude: ['app/**/*.spec.{ts,tsx}', 'app/**/*.stories.{ts,tsx}'],
         include: ['app/components/**/*.{ts,tsx}', 'app/utils/**/*.{ts,tsx}'],
         reporter: ['text', 'json-summary', 'json'],
         reportOnFailure: true,
       },
       environment: 'jsdom',
-      include: ['**/__tests__/**/*.spec.{ts,tsx}'],
-      setupFiles: ['app/__tests__/setup.ts'],
+      include: ['app/**/*.spec.{ts,tsx}'],
+      setupFiles: ['tests/setup/setup-test-env.ts'],
     },
   };
 });

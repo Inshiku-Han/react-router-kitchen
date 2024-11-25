@@ -1,6 +1,6 @@
 import Counter from '~/components/counter';
 
-import type { Route } from './+types/home';
+import type { Route } from './+types';
 
 export const meta: Route.MetaFunction = () => {
   return [{ title: 'Home' }, { content: 'This is Home!', name: 'description' }];

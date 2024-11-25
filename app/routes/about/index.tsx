@@ -1,6 +1,6 @@
 import Counter from '~/components/counter';
 
-import type { Route } from './+types/about';
+import type { Route } from './+types';
 
 export const meta: Route.MetaFunction = () => {
   return [

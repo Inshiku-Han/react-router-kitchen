@@ -1,4 +1,8 @@
+import { type ClassValue, clsx } from 'clsx';
 import { useEffect, useRef } from 'react';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
 export const double = (amount: number): number => amount * 2;
 

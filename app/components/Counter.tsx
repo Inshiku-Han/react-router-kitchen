@@ -1,6 +1,4 @@
-import type { ComponentProps } from 'react';
-
-import { useCallback, useMemo, useState } from 'react';
+import { type ComponentProps, useCallback, useMemo, useState } from 'react';
 
 import { double, usePrevious } from '~/utils/misc';
 

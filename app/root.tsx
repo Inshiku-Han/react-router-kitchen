@@ -1,5 +1,4 @@
 import type { PropsWithChildren } from 'react';
-
 import {
 	Links,
 	Meta,
@@ -10,17 +9,39 @@ import {
 } from 'react-router';
 
 import type { Route } from './+types/root';
-
-import '~/styles/globals.css';
+import stylesheet from './app.css?url';
 
 export const links: Route.LinksFunction = () => [
+	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 	{
-		as: 'style',
+		rel: 'preconnect',
+		href: 'https://fonts.gstatic.com',
 		crossOrigin: 'anonymous',
-		href: 'https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css',
-		rel: 'stylesheet',
 	},
+	{
+		rel: 'stylesheet',
+		href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap',
+	},
+	{ rel: 'stylesheet', href: stylesheet },
 ];
+
+export function Layout({ children }: PropsWithChildren) {
+	return (
+		<html lang="en">
+			<head>
+				<meta charSet="utf-8" />
+				<meta content="width=device-width, initial-scale=1" name="viewport" />
+				<Meta />
+				<Links />
+			</head>
+			<body>
+				{children}
+				<ScrollRestoration />
+				<Scripts />
+			</body>
+		</html>
+	);
+}
 
 export default function App() {
 	return <Outlet />;
@@ -43,32 +64,14 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
 	}
 
 	return (
-		<main>
+		<main className="pt-16 p-4 container mx-auto">
 			<h1>{message}</h1>
 			<p>{details}</p>
 			{stack && (
-				<pre>
+				<pre className="w-full p-4 overflow-x-auto">
 					<code>{stack}</code>
 				</pre>
 			)}
 		</main>
-	);
-}
-
-export function Layout({ children }: PropsWithChildren) {
-	return (
-		<html lang="en">
-			<head>
-				<meta charSet="utf-8" />
-				<meta content="width=device-width, initial-scale=1" name="viewport" />
-				<Meta />
-				<Links />
-			</head>
-			<body>
-				{children}
-				<ScrollRestoration />
-				<Scripts />
-			</body>
-		</html>
 	);
 }

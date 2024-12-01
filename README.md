@@ -113,6 +113,5 @@ npm run start
 - [testing-library](https://testing-library.com/docs)
 - [playwright](https://playwright.dev/docs/intro)
 - [storybook](https://storybook.js.org/docs)
-- [eslint](https://eslint.org/docs/latest/)
-- [prettier](https://prettier.io/docs/en/)
+- [biome](https://biomejs.dev/)
 - [knip](https://knip.dev/overview/getting-started)

@@ -4,11 +4,11 @@ import { expect, it } from 'vitest';
 import { usePrevious } from '~/utils/misc';
 
 it('Should be return', () => {
-  const { rerender, result } = renderHook(() => usePrevious(true));
+	const { rerender, result } = renderHook(() => usePrevious(true));
 
-  expect(result.current).toBeUndefined();
+	expect(result.current).toBeUndefined();
 
-  rerender();
+	rerender();
 
-  expect(result.current).toBe(true);
+	expect(result.current).toBe(true);
 });

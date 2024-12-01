@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react';
 
 export default {
-  parameters: {},
+	parameters: {},
 } satisfies Preview;

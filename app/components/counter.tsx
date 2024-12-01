@@ -7,21 +7,21 @@ import { double, usePrevious } from '~/utils/misc';
 type Props = Omit<ComponentProps<'button'>, 'onClick'>;
 
 export default function Counter(props: Props) {
-  const [count, setCount] = useState<number>(0);
+	const [count, setCount] = useState<number>(0);
 
-  const previous = usePrevious(count);
+	const previous = usePrevious(count);
 
-  const handleCount = useCallback(() => setCount((p) => p + 1), []);
+	const handleCount = useCallback(() => setCount((p) => p + 1), []);
 
-  const doubledCount = useMemo(() => double(count), [count]);
+	const doubledCount = useMemo(() => double(count), [count]);
 
-  return (
-    <button {...props} onClick={handleCount}>
-      previous: {previous}
-      <hr />
-      current: {count}
-      <hr />
-      doubled: {doubledCount}
-    </button>
-  );
+	return (
+		<button {...props} onClick={handleCount}>
+			previous: {previous}
+			<hr />
+			current: {count}
+			<hr />
+			doubled: {doubledCount}
+		</button>
+	);
 }

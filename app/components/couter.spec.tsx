@@ -5,13 +5,13 @@ import { expect, it } from 'vitest';
 import Counter from '~/components/counter';
 
 it('Should be rendered', async () => {
-  const user = userEvent.setup();
+	const user = userEvent.setup();
 
-  render(<Counter />);
+	render(<Counter />);
 
-  const button = screen.getByRole('button');
+	const button = screen.getByRole('button');
 
-  await user.click(button);
+	await user.click(button);
 
-  expect(button.textContent).includes('current: 1');
+	expect(button.textContent).includes('current: 1');
 });

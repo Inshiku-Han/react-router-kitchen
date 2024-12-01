@@ -5,16 +5,16 @@ import { expect, it } from 'vitest';
 import * as About from '~/routes/about';
 
 it('About renders', async () => {
-  const path = '/about';
+	const path = '/about';
 
-  const Stub = createRoutesStub([
-    {
-      Component: About.default,
-      path,
-    },
-  ]);
+	const Stub = createRoutesStub([
+		{
+			Component: About.default,
+			path,
+		},
+	]);
 
-  render(<Stub initialEntries={[path]} />);
+	render(<Stub initialEntries={[path]} />);
 
-  expect(screen.getByText('Remix')).toBeInTheDocument();
+	expect(screen.getByText('Remix')).toBeInTheDocument();
 });

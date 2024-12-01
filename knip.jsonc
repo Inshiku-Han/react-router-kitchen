@@ -1,8 +1,8 @@
 {
-  "$schema": "https://unpkg.com/knip@5/schema-jsonc.json",
-  "entry": ["app/**/*.{ts,tsx}", "react-router.config.ts"],
-  "ignoreDependencies": ["@react-router/node", "isbot"],
-  "vite": {
-    "config": ["**/vite.config.ts"],
-  },
+	"$schema": "https://unpkg.com/knip@5/schema-jsonc.json",
+	"entry": ["app/**/*.{ts,tsx}", "react-router.config.ts"],
+	"ignoreDependencies": ["@react-router/node", "isbot"],
+	"vite": {
+		"config": ["**/vite.config.ts"]
+	}
 }

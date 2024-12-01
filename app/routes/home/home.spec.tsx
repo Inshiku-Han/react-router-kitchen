@@ -5,16 +5,16 @@ import { expect, it } from 'vitest';
 import * as Home from '~/routes/home';
 
 it('Home renders', async () => {
-  const path = '/';
+	const path = '/';
 
-  const Stub = createRoutesStub([
-    {
-      Component: Home.default,
-      path,
-    },
-  ]);
+	const Stub = createRoutesStub([
+		{
+			Component: Home.default,
+			path,
+		},
+	]);
 
-  render(<Stub initialEntries={[path]} />);
+	render(<Stub initialEntries={[path]} />);
 
-  expect(screen.getByText('Remix')).toBeInTheDocument();
+	expect(screen.getByText('Remix')).toBeInTheDocument();
 });

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { expect, it } from 'vitest';
 
-import Counter from '~/components/counter';
+import Counter from '~/components/Counter';
 
 it('Should be rendered', async () => {
 	const user = userEvent.setup();

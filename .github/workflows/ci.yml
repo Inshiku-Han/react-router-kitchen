@@ -5,20 +5,17 @@ on:
     types: [synchronize, opened, reopened, ready_for_review]
 
 jobs:
-  lint:
+  biome:
     name: ▲ Biome
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: biomejs/setup-biome@v2
         with:
-          node-version: 20
-
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
+          version: latest
 
       - name: 🔬 Lint
-        run: npm run lint
+        run: biome ci .
 
   typecheck:
     name: ʦ TypeScript

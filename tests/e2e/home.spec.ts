@@ -1,7 +1,10 @@
 import { expect, test } from '@playwright/test';
 
 test('has title', async ({ page }) => {
-	await page.goto('/');
+	const [response] = await Promise.all([
+		page.waitForNavigation(),
+		page.goto('/'),
+	]);
 
-	await expect(page).toHaveTitle(/Home/);
+	expect(response?.url()).toContain('/login');
 });

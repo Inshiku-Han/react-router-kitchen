@@ -21,13 +21,13 @@ export default defineConfig(({ mode }) => {
 		test: {
 			coverage: {
 				all: true,
-				exclude: ['app/**/*.spec.{ts,tsx}', 'app/**/*.stories.{ts,tsx}'],
-				include: ['app/components/**/*.{ts,tsx}', 'app/utils/**/*.{ts,tsx}'],
+				exclude: ['src/**/*.spec.{ts,tsx}', 'src/**/*.stories.{ts,tsx}'],
+				include: ['src/components/**/*.{ts,tsx}', 'src/utils/**/*.{ts,tsx}'],
 				reporter: ['text', 'json-summary', 'json'],
 				reportOnFailure: true,
 			},
 			environment: 'jsdom',
-			include: ['app/**/*.spec.{ts,tsx}'],
+			include: ['src/**/*.spec.{ts,tsx}'],
 			setupFiles: ['tests/setup/setup-test-env.ts'],
 		},
 	};

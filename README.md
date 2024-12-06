@@ -60,30 +60,7 @@ npx vite preview
 
 ### Client-side rendering
 
-1. Setup
 
-- react-router.config.ts
-
-```diff
-import type { Config } from "@react-router/dev/config";
-
-export default {
-  prerender: true,
--  ssr: true,
-+  ssr: false,
-} satisfies Config;
-```
-
-- package.json
-
-```diff
--  "start": "react-router-serve ./build/server/index.js",
-```
-
-- remove @react-router/serve
-```bash
-npm uninstall @react-router/serve
-```
 
 2. build
 
@@ -96,6 +73,31 @@ npm run build
 You can serve `build/client/` using [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/), [serve](https://www.npmjs.com/package/serve), [sirv-cli](https://www.npmjs.com/package/sirv-cli)...etc.
 
 ### Server-side rendering
+
+1. Setup
+
+- react-router.config.ts
+
+```diff
+import type { Config } from "@react-router/dev/config";
+
+export default {
+  prerender: true,
+-  ssr: false,
++  ssr: true,
+} satisfies Config;
+```
+
+- package.json
+
+```diff
++  "start": "react-router-serve ./build/server/index.js",
+```
+
+- install @react-router/serve
+```bash
+npm i @react-router/serve
+```
 
 1. build
 

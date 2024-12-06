@@ -22,7 +22,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"paths": {
-			"~/*": ["app/*"]
+			"~/*": ["src/*"]
 		},
 		"rootDirs": [".", "./.react-router/types"]
 	}

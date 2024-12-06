@@ -80,6 +80,11 @@ export default {
 -  "start": "react-router-serve ./build/server/index.js",
 ```
 
+- remove @react-router/serve
+```bash
+npm uninstall @react-router/serve
+```
+
 2. build
 
 ```sh

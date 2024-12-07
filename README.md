@@ -30,39 +30,23 @@ npm run setup
 
 > 💡 Avoid using preview in production environments.
 
-1. Setup
-
-- react-router.config.ts
-
-```diff
-import type { Config } from "@react-router/dev/config";
-
-export default {
-  prerender: true,
--  ssr: true,
-+  ssr: false,
-} satisfies Config;
-```
-
-2. Build
+1. Build
 
 ```sh
 npm run build
 ```
 
-3. preview
+2. preview
 
 ```sh
-npx vite preview
+npm run preview
 ```
 
 ## How to serve
 
 ### Client-side rendering
 
-
-
-2. build
+1. build
 
 ```sh
 npm run build
@@ -99,17 +83,26 @@ export default {
 npm i @react-router/serve
 ```
 
-1. build
+- playwright.config.ts
+
+```diff
+	webServer: {
+-		command: process.env.CI ? 'npm run start' : 'npm run dev',
++		command: process.env.CI ? 'npm run preview' : 'npm run dev',
+```
+
+2. build
 
 ```sh
 npm run build
 ```
 
-2. serve
+3. serve
 
 ```sh
 npm run start
 ```
+
 
 ## References
 

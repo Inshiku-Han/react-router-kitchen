@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
+	content: ['./src/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		extend: {
 			fontFamily: {
@@ -14,6 +14,12 @@ export default {
 					'"Segoe UI Symbol"',
 					'"Noto Color Emoji"',
 				],
+			},
+			aria: {
+				invalid: `invalid="true"`,
+			},
+			width: {
+				sidebar: '16rem',
 			},
 		},
 	},

@@ -10,5 +10,5 @@ export default {
 			},
 		},
 	},
-	stories: ['../app/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+	stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 } satisfies StorybookConfig;

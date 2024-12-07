@@ -1,5 +1,6 @@
 import { cwd } from 'node:process';
 import { reactRouter } from '@react-router/dev/vite';
+import { reactRouterDevTools } from 'react-router-devtools';
 import { defineConfig, loadEnv } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -9,7 +10,9 @@ export default defineConfig(({ mode }) => {
 
 	return {
 		plugins: [
-			env.NODE_ENV === 'test' ? undefined : reactRouter(),
+			...(env.NODE_ENV === 'test'
+				? []
+				: [reactRouterDevTools(), reactRouter()]),
 			tsconfigPaths(),
 		],
 		preview: {
@@ -21,13 +24,13 @@ export default defineConfig(({ mode }) => {
 		test: {
 			coverage: {
 				all: true,
-				exclude: ['app/**/*.spec.{ts,tsx}', 'app/**/*.stories.{ts,tsx}'],
-				include: ['app/components/**/*.{ts,tsx}', 'app/utils/**/*.{ts,tsx}'],
+				exclude: ['src/**/*.spec.{ts,tsx}', 'src/**/*.stories.{ts,tsx}'],
+				include: ['src/components/**/*.{ts,tsx}', 'src/utils/**/*.{ts,tsx}'],
 				reporter: ['text', 'json-summary', 'json'],
 				reportOnFailure: true,
 			},
 			environment: 'jsdom',
-			include: ['app/**/*.spec.{ts,tsx}'],
+			include: ['src/**/*.spec.{ts,tsx}'],
 			setupFiles: ['tests/setup/setup-test-env.ts'],
 		},
 	};

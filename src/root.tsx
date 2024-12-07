@@ -8,8 +8,20 @@ import {
 	isRouteErrorResponse,
 } from 'react-router';
 
+import { APP_TITLE } from '~/config/env';
+import stylesheet from '~/styles/globals.css?url';
+
 import type { Route } from './+types/root';
-import stylesheet from './app.css?url';
+
+export const meta: Route.MetaFunction = () => [
+	{
+		title: APP_TITLE,
+	},
+	{
+		name: 'description',
+		content: `This is ${APP_TITLE}`,
+	},
+];
 
 export const links: Route.LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -41,6 +53,10 @@ export function Layout({ children }: PropsWithChildren) {
 			</body>
 		</html>
 	);
+}
+
+export function HydrateFallback() {
+	return null;
 }
 
 export default function App() {

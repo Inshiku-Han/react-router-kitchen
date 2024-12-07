@@ -18,11 +18,11 @@ export default defineConfig({
 	retries: process.env.CI ? 2 : 0,
 	testDir: './tests/e2e',
 	use: {
-		baseURL: `http://localhost:${PORT}/`,
+		baseURL: `http://localhost:${PORT}`,
 		trace: 'on-first-retry',
 	},
 	webServer: {
-		command: process.env.CI ? 'npm run start' : 'npm run dev',
+		command: process.env.CI ? 'npm run preview' : 'npm run dev',
 		env: {
 			PORT,
 		},

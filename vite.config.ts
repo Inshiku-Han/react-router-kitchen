@@ -1,5 +1,6 @@
 import { cwd } from 'node:process';
 import { reactRouter } from '@react-router/dev/vite';
+import { reactRouterDevTools } from 'react-router-devtools';
 import { defineConfig, loadEnv } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -9,7 +10,9 @@ export default defineConfig(({ mode }) => {
 
 	return {
 		plugins: [
-			env.NODE_ENV === 'test' ? undefined : reactRouter(),
+			...(env.NODE_ENV === 'test'
+				? []
+				: [reactRouterDevTools(), reactRouter()]),
 			tsconfigPaths(),
 		],
 		preview: {

@@ -15,6 +15,9 @@ export default {
 					'"Noto Color Emoji"',
 				],
 			},
+			aria: {
+				invalid: `invalid="true"`,
+			},
 			width: {
 				sidebar: '16rem',
 			},

@@ -8,8 +8,20 @@ import {
 	isRouteErrorResponse,
 } from 'react-router';
 
+import { APP_TITLE } from '~/config/env';
 import stylesheet from '~/styles/globals.css?url';
+
 import type { Route } from './+types/root';
+
+export const meta: Route.MetaFunction = () => [
+	{
+		title: APP_TITLE,
+	},
+	{
+		name: 'description',
+		content: `This is ${APP_TITLE}`,
+	},
+];
 
 export const links: Route.LinksFunction = () => [
 	{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },

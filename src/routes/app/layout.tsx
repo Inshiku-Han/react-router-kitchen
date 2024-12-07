@@ -71,7 +71,7 @@ export default function AppLayoutRoute() {
 						<Link to="#">Link 3</Link>
 					</nav>
 				</header>
-				<div className="flex-1 bg-green-400">
+				<div className="flex-1 bg-green-400 p-4">
 					<Outlet />
 				</div>
 				<footer className="bg-indigo-400">Footer</footer>

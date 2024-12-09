@@ -1,6 +1,8 @@
 import { cwd } from 'node:process';
 import { reactRouter } from '@react-router/dev/vite';
+import autoprefixer from 'autoprefixer';
 import { reactRouterDevTools } from 'react-router-devtools';
+import tailwindcss from 'tailwindcss';
 import { defineConfig, loadEnv } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -15,6 +17,20 @@ export default defineConfig(({ mode }) => {
 				: [reactRouterDevTools(), reactRouter()]),
 			tsconfigPaths(),
 		],
+		css: {
+			postcss: {
+				plugins: [tailwindcss, autoprefixer],
+			},
+		},
+		build: {
+			rollupOptions: {
+				output: {
+					entryFileNames: 'assets/[name].js',
+					chunkFileNames: 'assets/[name].js',
+					assetFileNames: 'assets/[name].[ext]',
+				},
+			},
+		},
 		preview: {
 			port,
 		},
